@@ -1,0 +1,2 @@
+# prijmaci-rizeni
+ignorujte to!!
