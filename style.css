@@ -1,0 +1,658 @@
+/* General Styling */
+:root {
+    --primary-color: #0056b3; /* Darker blue for accents */
+    --secondary-color: #007bff; /* Main blue for buttons/links */
+    --background-light: #f4f7f6; /* Light background for sections */
+    --background-dark: #e9ecef; /* Slightly darker background for contrast */
+    --text-color: #333;
+    --heading-color: #1a2a3a;
+    --border-color: #ddd;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-light);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    color: var(--heading-color);
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: 2.8em;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.2em;
+    font-weight: 700;
+    padding-top: 40px;
+}
+
+h3 {
+    font-size: 1.6em;
+    font-weight: 700;
+}
+
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+section {
+    padding: 40px 20px;
+    margin-bottom: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--shadow-light);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Header */
+.main-header {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 20px 0;
+    box-shadow: 0 2px 5px var(--shadow-light);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.school-logo {
+    max-width: 180px;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.school-titles h1 {
+    margin: 0;
+    font-size: 2.8em;
+    color: #fff;
+}
+
+.school-titles p {
+    margin: 5px 0 0;
+    font-size: 1.2em;
+    color: #f0f0f0;
+}
+
+/* Tlačítko pro uchazeče pod nadpisem školy */
+.applicants-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 30px;
+    background-color: #ffc107; /* Kontrastní barva (žlutá/oranžová) */
+    color: #333;
+    font-size: 1.3em;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.applicants-button:hover {
+    background-color: #e0a800;
+    transform: translateY(-2px);
+}
+
+/* News Slider Section */
+.news-slider-section {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--background-dark);
+}
+
+.slider-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slider-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.7s ease-in-out;
+    z-index: 1;
+}
+
+.slider-image.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 2em;
+    z-index: 10;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.slider-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+/* News Buttons Section */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.news-item {
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px var(--shadow-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.news-image {
+    width: 100%;
+    max-width: 300px;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 15px;
+}
+
+.news-button {
+    display: block;
+    width: calc(100% - 40px);
+    padding: 12px 20px;
+    background-color: var(--secondary-color);
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.news-button:hover {
+    background-color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* PC Configuration Section */
+.intro-text, .note-text {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 30px auto;
+    font-size: 1.1em;
+    color: #555;
+}
+
+.config-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+}
+
+.config-card {
+    background-color: var(--background-dark);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 10px var(--shadow-light);
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.config-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.config-card h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    font-size: 1.8em;
+}
+
+.config-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.config-card ul li {
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border-color);
+    font-size: 1.05em;
+    color: #444;
+}
+
+.config-card ul li:last-child {
+    border-bottom: none;
+}
+
+.highlight-spec {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Contacts Section */
+.contact-intro {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: #d9534f;
+    font-size: 1.1em;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.contact-category {
+    background-color: var(--background-dark);
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 2px 8px var(--shadow-light);
+}
+
+.contact-category h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.6em;
+}
+
+.contact-category table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.contact-category td {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: top;
+}
+
+.contact-category td:first-child {
+    font-weight: bold;
+    width: 35%;
+}
+
+.contact-category tr:last-child td {
+    border-bottom: none;
+}
+
+/* About Us Section */
+.about-us-section p {
+    text-align: center;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.about-us-section .credits {
+    font-style: italic;
+    margin-top: 30px;
+    color: #777;
+    font-size: 0.95em;
+}
+
+/* Styly pro informaci o budově */
+.about-us-section .building-info {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.about-us-section .building-info a {
+    color: var(--secondary-color);
+    text-decoration: underline;
+    font-weight: normal;
+}
+
+.about-us-section .building-info a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* Styly pro novou stránku uchazečů (applicants.html) */
+.applicants-intro-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: var(--background-light);
+}
+
+.applicants-intro-section h2 {
+    color: var(--primary-color);
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+.applicants-text-block {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.8;
+    font-size: 1.05em;
+    color: #444;
+}
+
+/* Styly pro nové HTML prvky v applicants-text-block */
+.applicants-text-block h3 {
+    text-align: left; /* Podnadpisy zarovnané vlevo */
+    color: var(--primary-color);
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    border-bottom: 1px solid var(--border-color); /* Oddělení podnadpisu */
+    padding-bottom: 5px;
+}
+
+/* Speciální styl pro nadpis "Procvičování na testy" */
+.applicants-text-block .practice-tests-heading {
+    text-align: center; /* Vycentrování nadpisu */
+    font-size: 1.6em; /* Větší font */
+    color: #28a745; /* Zelená barva pro důraz */
+    border-bottom: 2px solid #28a745; /* Dvojitá linka pod nadpisem */
+    padding-bottom: 10px;
+    margin-top: 50px; /* Větší mezera shora */
+    margin-bottom: 25px;
+}
+
+/* Speciální styl pro text "Procvičování na testy" */
+.applicants-text-block .practice-tests-text {
+    background-color: rgba(40, 167, 69, 0.08); /* Světlé zelené pozadí */
+    border-left: 5px solid #28a745; /* Zelený proužek vlevo */
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    color: #333;
+    line-height: 1.7;
+    text-align: justify; /* Zarovnání do bloku */
+}
+
+.applicants-text-block ul {
+    list-style: disc; /* Klasické odrážky */
+    padding-left: 30px; /* Odsazení odrážek */
+    margin-bottom: 20px;
+}
+
+.applicants-text-block ul li {
+    margin-bottom: 8px; /* Mezera mezi položkami odrážek */
+}
+
+.applicants-text-block .warning-text {
+    color: #e67e22; /* Oranžová barva pro varování */
+    font-weight: bold;
+    font-size: 1.1em;
+    text-align: center;
+    margin: 25px 0;
+    padding: 15px;
+    border: 1px dashed #e67e22;
+    border-radius: 5px;
+    background-color: rgba(255, 193, 7, 0.1); /* Světlé pozadí */
+}
+
+.applicants-text-block .important-warning {
+    color: #dc3545; /* Červená barva pro důležité varování */
+    font-weight: bold;
+    font-size: 1.2em;
+    text-align: center;
+    margin: 30px 0;
+    padding: 20px;
+    border: 2px solid #dc3545;
+    border-radius: 8px;
+    background-color: rgba(220, 53, 69, 0.1); /* Světlé pozadí */
+}
+
+
+.applicants-text-block p {
+    margin-bottom: 1.5em;
+}
+
+.applicants-text-block p:last-child {
+    margin-bottom: 0;
+}
+
+.applicants-text-block strong {
+    color: var(--heading-color);
+}
+
+.applicants-text-block .signature {
+    text-align: right;
+    font-style: italic;
+    font-weight: bold;
+    margin-top: 30px;
+    color: var(--primary-color);
+}
+
+.applicants-text-block .contact-email {
+    text-align: right;
+    margin-top: 15px;
+    font-size: 0.95em;
+}
+
+.applicants-text-block .contact-email a {
+    font-weight: bold;
+}
+
+/* --- Responzivní Design --- */
+@media (max-width: 1024px) {
+    section {
+        padding: 30px 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        padding: 15px 0;
+    }
+    .header-content {
+        padding: 0 15px;
+    }
+    .school-logo {
+        max-width: 150px;
+    }
+    .school-titles h1 {
+        font-size: 2.2em;
+    }
+    .school-titles p {
+        font-size: 1em;
+    }
+
+    h1 {
+        font-size: 2.2em;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    h3 {
+        font-size: 1.4em;
+    }
+
+    /* Tlačítko pro uchazeče */
+    .applicants-button {
+        font-size: 1.1em;
+        padding: 12px 25px;
+        width: calc(100% - 40px);
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .news-grid, .config-grid, .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Kontaktní tabulky na mobilu */
+    .contact-category table,
+    .contact-category tbody,
+    .contact-category tr,
+    .contact-category td {
+        display: block;
+        width: 100%;
+    }
+
+    .contact-category tr {
+        margin-bottom: 15px;
+        border: 1px solid var(--border-color);
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .contact-category td:first-child {
+        font-weight: normal;
+        color: var(--primary-color);
+        padding-bottom: 5px;
+    }
+    .contact-category td {
+        padding: 5px 0;
+        border-bottom: none;
+    }
+
+    /* Nová stránka uchazečů */
+    .applicants-text-block {
+        padding: 20px;
+        font-size: 0.95em;
+    }
+
+    .applicants-text-block h3 {
+        font-size: 1.2em;
+    }
+
+    .applicants-text-block ul {
+        padding-left: 20px;
+    }
+
+    .applicants-text-block .warning-text,
+    .applicants-text-block .important-warning,
+    .applicants-text-block .practice-tests-text { /* Také pro nový text blok */
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    .applicants-text-block .practice-tests-heading {
+        font-size: 1.4em;
+    }
+}
+
+@media (max-width: 480px) {
+    .school-logo {
+        max-width: 120px;
+    }
+    .school-titles h1 {
+        font-size: 1.8em;
+    }
+    .school-titles p {
+        font-size: 0.9em;
+    }
+    h1 {
+        font-size: 1.8em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    .applicants-button {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+    .applicants-text-block {
+        padding: 15px;
+        font-size: 0.9em;
+        line-height: 1.6;
+    }
+}
+
+/* Opravená a vylepšená patička */
+footer {
+    background-color: var(--heading-color);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    font-size: 0.9em;
+    width: 100%;
+    box-sizing: border-box;
+}
